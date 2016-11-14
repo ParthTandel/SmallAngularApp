@@ -1,0 +1,2 @@
+# SmallAngularApp
+Simple Angular Application
