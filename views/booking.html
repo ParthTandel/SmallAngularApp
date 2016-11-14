@@ -1,0 +1,12 @@
+<div>
+    <input list="cities" name="fromCity" ng-model="fromCity">
+    </br>
+    <input list="cities" name="toCity" ng-model="toCity">
+    <datalist id="cities">
+        <option ng-repeat="city in cities" value="{{city}}">
+    </datalist>
+    <br>
+    <input type="Number" name="noTicket" ng-model="noTicket">
+    <input type="submit" ng-click="bookFlight()">
+    <p ng-show="errorTrue">{{error}}</p>
+</div>

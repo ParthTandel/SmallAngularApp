@@ -1,0 +1,202 @@
+[
+ {
+   "From": "Chennai",
+   "To": "Delhi",
+   "Departure": "17:00",
+   "Arrival": "19:40",
+   "Duration": "2 Hours 40 mins",
+   "Airline": "Jet Airways",
+   "Seats Available": "1",
+   "Price": "6900"
+ },
+ {
+   "From": "Kolkata",
+   "To": "Bangalore",
+   "Departure": "21:40",
+   "Arrival": "00:10",
+   "Duration": "2 Hours 30 mins",
+   "Airline": "Air India",
+   "Seats Available": "1",
+   "Price": "7500"
+ },
+ {
+   "From": "Bangalore",
+   "To": "Kolkata",
+   "Departure": "07:00",
+   "Arrival": "09:30",
+   "Duration": "2 Hours 30 mins",
+   "Airline": "Jet Airways",
+   "Seats Available": "2",
+   "Price": "4000"
+ },
+ {
+   "From": "Delhi",
+   "To": "Chennai",
+   "Departure": "12:30",
+   "Arrival": "15:20",
+   "Duration": "2 Hours 50 Mins",
+   "Airline": "Air India",
+   "Seats Available": "3",
+   "Price": "9000"
+ },
+ {
+   "From": "Bangalore",
+   "To": "Kolkata",
+   "Departure": "17:00",
+   "Arrival": "19:00",
+   "Duration": "2 Hours",
+   "Airline": "Air India",
+   "Seats Available": "3",
+   "Price": "10000"
+ },
+ {
+   "From": "Kolkata",
+   "To": "Bangalore",
+   "Departure": "21:30",
+   "Arrival": "00:10",
+   "Duration": "2 Hours 40 mins",
+   "Airline": "Jet Airways",
+   "Seats Available": "3",
+   "Price": "6300"
+ },
+ {
+   "From": "Bangalore",
+   "To": "Kolkata",
+   "Departure": "18:00",
+   "Arrival": "20:00",
+   "Duration": "2 Hours",
+   "Airline": "Indigo",
+   "Seats Available": "5",
+   "Price": "6000"
+ },
+ {
+   "From": "Delhi",
+   "To": "Chennai",
+   "Departure": "03:00",
+   "Arrival": "06:00",
+   "Duration": "3 Hours",
+   "Airline": "Air India",
+   "Seats Available": "7",
+   "Price": "8000"
+ },
+ {
+   "From": "Chennai",
+   "To": "Delhi",
+   "Departure": "02:00",
+   "Arrival": "05:00",
+   "Duration": "3 hours",
+   "Airline": "Air India",
+   "Seats Available": "10",
+   "Price": "7000"
+ },
+ {
+   "From": "Kolkata",
+   "To": "Bangalore",
+   "Departure": "05:50",
+   "Arrival": "07:50",
+   "Duration": "2 Hours",
+   "Airline": "Air India",
+   "Seats Available": "12",
+   "Price": "5699"
+ },
+ {
+   "From": "Delhi",
+   "To": "Chennai",
+   "Departure": "12:20",
+   "Arrival": "15:20",
+   "Duration": "3 Hours",
+   "Airline": "Air India",
+   "Seats Available": "12",
+   "Price": "9000"
+ },
+ {
+   "From": "Bangalore",
+   "To": "Kolkata",
+   "Departure": "03:00",
+   "Arrival": "05:00",
+   "Duration": "2 Hours",
+   "Airline": "Indigo",
+   "Seats Available": "21",
+   "Price": "6500"
+ },
+ {
+   "From": "Kolkata",
+   "To": "Bangalore",
+   "Departure": "05:50",
+   "Arrival": "08:00",
+   "Duration": "2 Hours 10 mins",
+   "Airline": "Indigo",
+   "Seats Available": "21",
+   "Price": "5700"
+ },
+ {
+   "From": "Chennai",
+   "To": "Delhi",
+   "Departure": "16:50",
+   "Arrival": "19:00",
+   "Duration": "2 Hours 10 mins",
+   "Airline": "Air India",
+   "Seats Available": "24",
+   "Price": "5750"
+ },
+ {
+   "From": "Delhi",
+   "To": "Chennai",
+   "Departure": "03:00",
+   "Arrival": "06:00",
+   "Duration": "3 Hours",
+   "Airline": "Indigo",
+   "Seats Available": "25",
+   "Price": "7999"
+ },
+ {
+   "From": "Chennai",
+   "To": "Delhi",
+   "Departure": "05:00",
+   "Arrival": "08:00",
+   "Duration": "3 Hours",
+   "Airline": "Air India",
+   "Seats Available": "26",
+   "Price": "8000"
+ },
+ {
+   "From": "Bangalore",
+   "To": "Kolkata",
+   "Departure": "18:00",
+   "Arrival": "21:00",
+   "Duration": "3 Hours",
+   "Airline": "Air India",
+   "Seats Available": "27",
+   "Price": "5000"
+ },
+ {
+   "From": "Delhi",
+   "To": "Chennai",
+   "Departure": "03:00",
+   "Arrival": "06:05",
+   "Duration": "3 Hours 5 mins",
+   "Airline": "Jet Airways",
+   "Seats Available": "29",
+   "Price": "7500"
+ },
+ {
+   "From": "Kolkata",
+   "To": "Bangalore",
+   "Departure": "02:30",
+   "Arrival": "04:50",
+   "Duration": "2 Hours 20 mins",
+   "Airline": "Air India",
+   "Seats Available": "36",
+   "Price": "4500"
+ },
+ {
+   "From": "Chennai",
+   "To": "Delhi",
+   "Departure": "17:00",
+   "Arrival": "19:50",
+   "Duration": "2 Hours 50 mins",
+   "Airline": "Indigo",
+   "Seats Available": "56",
+   "Price": "4800"
+ }
+]
