@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html ng-app="interviewApp">
+
   <head>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">  -->
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="node_modules/angularjs-slider/dist/rzslider.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="node_modules/angularjs-slider/dist/rzslider.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/main.css"/>
     <script src="scripts/apps.js"></script>
     <script src="scripts/controllers/booking.js"></script>
     <script src="scripts/controllers/flights.js"></script>
     <title></title>
   </head>
   <body>
-    <div>Header</div>
+    <div class="header">
+      <img src="assets/images/travel-smart.png" alt="logo" style="width:300px;height:auto;">
+    </div>
     <main ui-view></main>
   </body>
 </html>

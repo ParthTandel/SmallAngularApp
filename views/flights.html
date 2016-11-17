@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <!--
     <input type="checkbox" ng-model='priceSort' ng-click="flightSort();"> price</input>
     <input type="checkbox" ng-model='durationSort' ng-click="flightSort();"> Duration</input>
@@ -7,45 +7,118 @@
     <input type="checkbox" ng-model='noOfSeatSort' ng-click="flightSort();"> No. of Seats</input>
     <input type="checkbox" ng-model='AirlineSort' ng-click="flightSort();"> Airline</input>
     -->
-    <div class="Filters">
-        <span ng-click="Sort('Departure');">Departure</span>
-        <span ng-click="Sort('Arrival')">Arrival</span>
-        <span ng-click="Sort('Airline')">Airline</span>
-        <span ng-click="Sort('Price')">Price</span>
-        <span ng-click="Sort('Duration')">Duration</span>
-        <span ng-click="Sort('SeatsAvailable')">Seats Available</span>
+
+
+    <div class="flight_filters" ng-class= " showFilter ? 'displayMobile' : ''">
+        <div class="filter_title">
+          <div class="mobile_show button_filter" ng-click="showFilter = !showFilter">
+            <i class="fa fa-bars fa-1x" aria-hidden="true"></i>
+          </div>
+          Filters
+        </div>
+        <div class="filter_body">
+            <div class="filter_sub_title">Price</div>
+            <div class="filter_wrapper">
+                <div class="priceSlider">
+                    <rzslider rz-slider-model="slider.min" rz-slider-high="slider.max" rz-slider-options="slider.options"></rzslider>
+                </div>
+            </div>
+            <div class="filter_sub_title">Airlines</div>
+            <div class="filter_wrapper">
+                <div ng-repeat="airline in airlines">
+                    <input type="checkbox" ng-click="AirlineFilter(airline)" checked="true">{{airline}}</input>
+                </div>
+            </div>
+
+            <div class="filter_sub_title">Durations</div>
+            <div class="filter_wrapper">
+                <div ng-repeat="hrs in durationArray">
+                    <input type="checkbox" ng-click="durationFilter(hrs)" checked="true"> {{hrs-1}} to {{hrs}} hrs </input>
+                </div>
+            </div>
+
+            <div class="filter_sub_title">Arrival</div>
+            <div class="filter_wrapper">
+                <div ng-repeat="arrival in ArrivalArray">
+                    <input type="checkbox" ng-click="arrivalFilter(arrival)" checked="true"> <span ng-show="$last">greater than </span> {{arrival | date : 'shortTime' }} <span ng-show="!$last"> to </span> {{ArrivalArray[$index + 1] | date : 'shortTime'}}</input>
+                </div>
+            </div>
+
+            <div class="filter_sub_title">Departure</div>
+            <div class="filter_wrapper">
+                <div ng-repeat="departure in DepartureArray">
+                    <input type="checkbox" ng-click="departureFilter(departure)" checked="true"> <span ng-show="$last">greater than </span> {{departure | date : 'shortTime' }} <span ng-show="!$last"> to </span> {{DepartureArray[$index + 1] | date : 'shortTime'}}</input>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="flight_details">
+        <div class="flight_sort" >
+            <div class="mobile_show" ng-click="showFilter = !showFilter">
+              <i class="fa fa-bars fa-1x" aria-hidden="true"></i>
+            </div>
+            <div ng-click="airlinedown = !airlinedown ; airlineup = !airlinedown ; Sort('Airline')">Airline
+              <span ng-show="(!airlineup && !airlinedown)">&nbsp&nbsp&nbsp</span>
+              <i ng-show="airlineup" class="fa fa-arrow-circle-up"></i>
+              <i ng-show="airlinedown" class="fa fa-arrow-circle-down"></i>
+            </div>
+            <div ng-click="departuredown =! departuredown ; departureup = !departuredown ;Sort('Departure');">Departure
+              <span ng-show="(!departureup && !departuredown)">&nbsp&nbsp&nbsp</span>
+              <i ng-show="departureup" class="fa fa-arrow-circle-up"></i>
+              <i ng-show="departuredown" class="fa fa-arrow-circle-down"></i>
+            </div>
+            <div class="mobile_show" ng-click="arrivaldown = !arrivaldown ; arrivalup = !arrivaldown ; Sort('Arrival')">Arrival
+              <span ng-show="(!arrivalup && !arrivaldown)">&nbsp&nbsp&nbsp</span>
+              <i ng-show="arrivalup" class="fa fa-arrow-circle-up"></i>
+              <i ng-show="arrivaldown" class="fa fa-arrow-circle-down"></i>
+            </div>
+            <div class="mobile_hide" ng-click="durationdown =! durationdown ; durationup =! durationdown ; Sort('Duration')">Duration
+              <span ng-show="(!durationup && !durationdown)">&nbsp&nbsp&nbsp</span>
+              <i ng-show="durationup" class="fa fa-arrow-circle-up"></i>
+              <i ng-show="durationdown" class="fa fa-arrow-circle-down"></i>
+            </div>
+            <div ng-click="pricedown = !pricedown ; priceup = !pricedown ; Sort('Price')">Price
+              <span ng-show="(!priceup && !pricedown)">&nbsp&nbsp&nbsp</span>
+              <i ng-show="priceup" class="fa fa-arrow-circle-up"></i>
+              <i ng-show="pricedown" class="fa fa-arrow-circle-down"></i>
+            </div>
+            <div class="mobile_hide"  ng-click="seatsdown =! seatsdown ; seatsup =! seatsdown ; Sort('SeatsAvailable')">Seats Available
+              <span ng-show="(!seatsup && !seatsdown)">&nbsp&nbsp&nbsp</span>
+              <i ng-show="seatsup" class="fa fa-arrow-circle-up"></i>
+              <i ng-show="seatsdown" class="fa fa-arrow-circle-down"></i>
+            </div>
+        </div>
+        <div class="flights_wrapper">
+            <div class="flights" ng-repeat="flight in renderData | orderBy:orderByList">
+
+              <div>
+                {{flight.Airline}}
+              </div>
+              <div>
+                {{flight.Departure | date : 'shortTime' }}
+                <br>
+                {{to}}
+              </div>
+              <div >
+                {{flight.Arrival | date : 'shortTime' }}
+                <br>
+                {{from}}
+              </div>
+              <div class="mobile_hide" >
+                {{flight.Duration}}
+              </div>
+              <div>
+                INR: {{flight.Price}}
+              </div>
+              <div class="mobile_hide">
+                Available: {{flight.SeatsAvailable}}
+              </div>
+            </div>
+
+            <div ng-show="noData" class="flights">
+              Sorry currently no flights Available
+            </div>
+        </div>
     </div>
 
-    <div>
-        <div ng-repeat="flight in renderData | orderBy:orderByList">
-            {{flight.Departure | date : 'shortTime' }} {{flight.Arrival | date : 'shortTime' }} {{flight.Airline}} {{flight.Price}} {{flight.Duration}} {{flight.SeatsAvailable}}
-        </div>
-
-        <div>
-            <br>
-            <div ng-repeat="airline in airlines">
-                <input type="checkbox" ng-click="AirlineFilter(airline)" checked="true">{{airline}}</input>
-            </div>
-            <br>
-
-            <div ng-repeat="hrs in durationArray">
-                <input type="checkbox" ng-click="durationFilter(hrs)" checked="true"> {{hrs-1}} to {{hrs}} hrs </input>
-            </div>
-
-            <br>
-            Arrival
-            <div ng-repeat="arrival in ArrivalArray">
-              <input type="checkbox" ng-click="arrivalFilter(arrival)" checked="true">  <span ng-show ="$last">greater than </span> {{arrival | date : 'shortTime' }} <span ng-show ="!$last"> to </span> {{ArrivalArray[$index + 1] | date : 'shortTime'}}</input>
-            </div>
-
-            <br>
-            Departure
-            <div ng-repeat="departure in DepartureArray">
-              <input type="checkbox" ng-click="departureFilter(departure)" checked="true">  <span ng-show ="$last">greater than </span> {{departure | date : 'shortTime' }} <span ng-show ="!$last"> to </span> {{DepartureArray[$index + 1] | date : 'shortTime'}}</input>
-            </div>
-            <br>
-
-            <rzslider rz-slider-model="slider.min" rz-slider-high="slider.max" rz-slider-options="slider.options" style="width=60%;"></rzslider>
-        </div>
-    </div>
 </div>

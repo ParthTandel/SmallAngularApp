@@ -9,6 +9,25 @@ angular.module('interviewApp')
         $scope.minPrice = Number.MAX_VALUE;
         $scope.maxPrice = 0;
 
+        $scope.departureup = false;
+        $scope.departuredown = false;
+        $scope.arrivalup = false;
+        $scope.arrivaldown = false;
+        $scope.airlineup = false;
+        $scope.airlinedown = false;
+        $scope.priceup = false;
+        $scope.pricedown = false;
+        $scope.durationup = false;
+        $scope.durationdown = false;
+        $scope.seatsup = false;
+        $scope.seatsdown = false;
+        $scope.showFilter = false;
+        $scope.to = ""
+        $scope.from = ""
+
+        $scope.noData = false;
+
+
 
         var date = new Date()
         date.setHours(0);
@@ -33,12 +52,13 @@ angular.module('interviewApp')
         $scope.DepartureArray = [];
 
 
-
         if ($state.params.bookingDetails == null || $state.params.bookingDetails == "") {
             $state.go('bookings');
         } else {
             var details = $state.params.bookingDetails.split("_"); //check later for responses;
-            $http.get("http://localhost:8000/data.json").then(function(response) {
+            $scope.to = details[0];
+            $scope.from = details[1];
+            $http.get("../../data.json").then(function(response) {
                 for (data in response.data) {
                     if (response.data[data].From.toLowerCase() == details[0].toLowerCase() &&
                         response.data[data].To.toLowerCase() == details[1].toLowerCase() &&
@@ -89,6 +109,13 @@ angular.module('interviewApp')
                     }
                 }
 
+                if($scope.renderData < 1)
+                {
+                  $scope.noData = true;
+                  $scope.minPrice = 0
+
+                }
+
                 for (i = Math.ceil($scope.minDuration / 60); i <= Math.ceil($scope.maxDuration / 60); i++) {
                     $scope.durationArray.push(i);
                     $scope.selectedDuration.push(i);
@@ -120,7 +147,7 @@ angular.module('interviewApp')
                     $scope.selectedDeparture.push(date);
 
                 }
-
+                
                 $scope.slider = {
                     min: $scope.minPrice,
                     max: $scope.maxPrice,
@@ -152,19 +179,21 @@ angular.module('interviewApp')
             $scope.renderData = [];
             for (data in $scope.flightData) {
                 if ($scope.selectedAirlines.indexOf($scope.flightData[data]['Airline']) > -1 &&
-                    $scope.flightData[data]['Price'] >= $scope.slider.min &&
-                    $scope.flightData[data]['Price'] <= $scope.slider.max &&
+                    parseInt($scope.flightData[data]['Price']) >= parseInt($scope.slider.min) &&
+                    parseInt($scope.flightData[data]['Price']) <= parseInt($scope.slider.max) &&
                     $scope.selectedDuration.indexOf(Math.ceil($scope.flightData[data]['DurationMinute'] / 60)) > -1) {
                     $scope.renderData.push($scope.flightData[data]);
                 }
             }
 
+            //no issue till here;
+
             var length = $scope.renderData.length;
-            for (data = 0; data < length; data++) {
-                var arrLength = $scope.selectedArrival.length;
+            var arrLength = $scope.selectedArrival.length;
+
+            for (var data = 0; data < length; data++) {
                 var present = false;
                 for (var i = 0; i < arrLength; i++) {
-
                     var nextDate = new Date();
                     nextDate.setHours($scope.selectedArrival[i].getHours() + 3);
                     nextDate.setMinutes(0);
@@ -181,8 +210,10 @@ angular.module('interviewApp')
                 }
             }
 
+            console.log($scope.renderData);
+
             var length = $scope.renderData.length;
-            for (data = 0; data < length; data++) {
+            for (var data = 0; data < length; data++) {
                 var arrLength = $scope.selectedDeparture.length;
                 var present = false;
                 for (var i = 0; i < arrLength; i++) {
@@ -201,6 +232,16 @@ angular.module('interviewApp')
                     data = data - 1;
                     length = length - 1;
                 }
+            }
+
+            console.log($scope.renderData.length);
+
+            if($scope.renderData.length < 1)
+            {
+              $scope.noData = true;
+            }
+            else {
+              $scope.noDate = false;
             }
         }
 

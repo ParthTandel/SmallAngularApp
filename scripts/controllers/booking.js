@@ -1,6 +1,6 @@
 angular.module('interviewApp')
     .controller('booking', function($scope, $state) {
-        $scope.cities = ["Chennai", "Kolkata", "Bangalore", "Delhi", "navsari"];
+        $scope.cities = ["Chennai", "Kolkata", "Bangalore", "Delhi"];
         $scope.error = ""
         $scope.errorTrue = false;
         $scope.bookFlight = function() {
