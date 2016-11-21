@@ -18,13 +18,9 @@ var app = angular.module('interviewApp', ['ui.router', 'rzModule']);
 // }]);
 app.config(function($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/bookings');
 
     $stateProvider
-        .state('home', {
-            url: "/",
-            templateUrl: 'views/home.html',
-        })
         .state('bookings', {
             url: "/bookings",
             templateUrl: 'views/booking.html',
